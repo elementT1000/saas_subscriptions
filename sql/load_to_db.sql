@@ -29,9 +29,9 @@ CREATE TABLE geo_lookup (
 );
 
 -- 2. LOAD FILES INTO TABLES
-\copy exchange_rates FROM 'C:/Users/trott/projects/saas_subscription_analysis/data/raw/exchange_rates.csv' DELIMITER ',' CSV HEADER;
-\copy geo_lookup FROM 'C:/Users/trott/projects/saas_subscription_analysis/data/raw/geo_lookup.csv' DELIMITER ',' CSV HEADER;
-\copy daily_subs FROM 'C:/Users/trott/projects/saas_subscription_analysis/data/raw/daily_subs.csv' DELIMITER ',' CSV HEADER;
+\copy exchange_rates FROM '[HOME]/projects/saas_subscription_analysis/data/raw/exchange_rates.csv' DELIMITER ',' CSV HEADER;
+\copy geo_lookup FROM '[HOME]/projects/saas_subscription_analysis/data/raw/geo_lookup.csv' DELIMITER ',' CSV HEADER;
+\copy daily_subs FROM '[HOME]/projects/saas_subscription_analysis/data/raw/daily_subs.csv' DELIMITER ',' CSV HEADER;
 
 
 -- 3. CHECK

@@ -3,11 +3,17 @@
 SELECT COUNT(*), MIN(price_usd), MAX(price_usd), AVG(price_usd)
 FROM daily_subs;
 
--- Count NULLS
+-- Count NULLS in daily_subs
 SELECT COUNT(*) AS total_rows,
        COUNT(price_usd) AS non_null_values,
        COUNT(*) - COUNT(price_usd) AS null_values
 FROM daily_subs;
+
+-- Count NULLS in continent column
+SELECT COUNT(*) AS total_rows,
+       COUNT(continent) AS non_null_values,
+       COUNT(*) - COUNT(continent) AS null_values
+FROM daily_subs_country_rates;
 
 -- Check for duplicates in key
 SELECT user_id, COUNT(*)
@@ -21,6 +27,9 @@ DELETE FROM daily_subs WHERE usd_price IS NULL;
 
 DELETE FROM daily_subs WHERE country_code IS NULL;
 -- deletes 55
+
+DELETE FROM daily_subs_country_rates WHERE continent IS NULL;
+--deletes 24
 
 UPDATE daily_subs
 SET country_code = 'US'
@@ -72,4 +81,4 @@ SELECT * FROM daily_subs_country_rates;
 
 
 -- Copy to .csv for later use
-\copy daily_subs_country_rates TO 'C:/Users/trott/projects/saas_subscription_analysis/data/clean/zoom_subs.csv' CSV HEADER;
+\copy daily_subs_country_rates TO '[HOME]/projects/saas_subscription_analysis/data/clean/zoom_subs.csv' CSV HEADER;
